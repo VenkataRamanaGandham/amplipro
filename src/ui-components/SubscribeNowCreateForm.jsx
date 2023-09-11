@@ -9,19 +9,8 @@ import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { fetchByPath, validateField } from "./utils";
-import { API } from "aws-amplify";
-import { createSubscribeNow } from "../graphql/mutations";
 export default function SubscribeNowCreateForm(props) {
-  const {
-    clearOnSuccess = true,
-    onSuccess,
-    onError,
-    onSubmit,
-    onValidate,
-    onChange,
-    overrides,
-    ...rest
-  } = props;
+  const { onSubmit, onValidate, onChange, overrides, ...rest } = props;
   const initialValues = {
     SubscriptionEmailId: "",
   };
@@ -61,7 +50,7 @@ export default function SubscribeNowCreateForm(props) {
       padding="20px"
       onSubmit={async (event) => {
         event.preventDefault();
-        let modelFields = {
+        const modelFields = {
           SubscriptionEmailId,
         };
         const validationResponses = await Promise.all(
@@ -83,43 +72,13 @@ export default function SubscribeNowCreateForm(props) {
         if (validationResponses.some((r) => r.hasError)) {
           return;
         }
-        if (onSubmit) {
-          modelFields = onSubmit(modelFields);
-        }
-        try {
-          Object.entries(modelFields).forEach(([key, value]) => {
-            if (typeof value === "string" && value === "") {
-              modelFields[key] = null;
-            }
-          });
-          await API.graphql({
-            query: createSubscribeNow,
-            variables: {
-              input: {
-                ...modelFields,
-              },
-            },
-          });
-          if (onSuccess) {
-            onSuccess(modelFields);
-          }
-          if (clearOnSuccess) {
-            resetStateValues();
-          }
-        } catch (err) {
-          if (onError) {
-            const messages = err.errors.map((e) => e.message).join("\n");
-            onError(modelFields, messages);
-          }
-        }
+        await onSubmit(modelFields);
       }}
       {...getOverrideProps(overrides, "SubscribeNowCreateForm")}
       {...rest}
     >
       <TextField
         label="Subscription email id"
-        isRequired={false}
-        isReadOnly={false}
         value={SubscriptionEmailId}
         onChange={(e) => {
           let { value } = e.target;

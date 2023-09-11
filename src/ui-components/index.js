@@ -5,6 +5,7 @@
  **************************************************************************/
 
 export { default as ContactUsCreateForm } from "./ContactUsCreateForm";
+export { default as ContactUsCreateFormCreateForm } from "./ContactUsCreateFormCreateForm";
 export { default as ContactUsCreateFormUpdateForm } from "./ContactUsCreateFormUpdateForm";
 export { default as Desktoplight } from "./Desktoplight";
 export { default as FeaturedIn } from "./FeaturedIn";

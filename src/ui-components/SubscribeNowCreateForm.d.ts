@@ -26,10 +26,7 @@ export declare type SubscribeNowCreateFormOverridesProps = {
 export declare type SubscribeNowCreateFormProps = React.PropsWithChildren<{
     overrides?: SubscribeNowCreateFormOverridesProps | undefined | null;
 } & {
-    clearOnSuccess?: boolean;
-    onSubmit?: (fields: SubscribeNowCreateFormInputValues) => SubscribeNowCreateFormInputValues;
-    onSuccess?: (fields: SubscribeNowCreateFormInputValues) => void;
-    onError?: (fields: SubscribeNowCreateFormInputValues, errorMessage: string) => void;
+    onSubmit: (fields: SubscribeNowCreateFormInputValues) => void;
     onChange?: (fields: SubscribeNowCreateFormInputValues) => SubscribeNowCreateFormInputValues;
     onValidate?: SubscribeNowCreateFormValidationValues;
 } & React.CSSProperties>;
