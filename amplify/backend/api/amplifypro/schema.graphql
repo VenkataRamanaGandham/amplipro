@@ -1,0 +1,11 @@
+type SubscribeNow @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  SubscriptionEmailId: String
+}
+
+type ContactUsCreateForm @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  Name: String
+  EmailId: String
+  Message: String
+} 
