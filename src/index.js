@@ -1,17 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
+import Auth from './Auth';
 import reportWebVitals from './reportWebVitals';
 
 import { NavBar } from './ui-components';
-import { HeroBanner } from './ui-components';
-import { ListingBlock } from './ui-components';
-import { SterlizedComponent } from './ui-components';
-import { Ultraviolet } from './ui-components';
 import { Footer } from './ui-components';
-import { ContactUsCreateForm } from './ui-components';
-import { SubscribeNowCreateForm } from './ui-components';
 
 import { ThemeProvider } from "@aws-amplify/ui-react";
 import { Amplify } from 'aws-amplify';
@@ -27,15 +21,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={studioTheme}>
-    {/* <App /> */}
     <NavBar />
-    <HeroBanner />
-    <ListingBlock />
-    <HeroBanner />
-    <SterlizedComponent />
-    <Ultraviolet />
-    <ContactUsCreateForm />
-    <SubscribeNowCreateForm />
+    <Auth />
     <Footer />
     </ThemeProvider>
   </React.StrictMode>

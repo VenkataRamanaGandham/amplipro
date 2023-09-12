@@ -6,10 +6,29 @@
 
 /* eslint-disable */
 import * as React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useNavigateAction,
+} from "@aws-amplify/ui-react/internal";
 import { Icon, Text, View } from "@aws-amplify/ui-react";
 export default function NavBar(props) {
   const { overrides, ...rest } = props;
+  const productfeaturesOnClick = useNavigateAction({
+    type: "url",
+    url: "google.com",
+  });
+  const featuredinOnClick = useNavigateAction({
+    type: "url",
+    url: "https://main.d1u1rwoxxrg4ul.amplifyapp.com/",
+  });
+  const carbiquelogoTwoOnClick = useNavigateAction({
+    type: "url",
+    url: "https://main.d1u1rwoxxrg4ul.amplifyapp.com/",
+  });
+  const vectorFiveEightFiveFiveEightOnClick = useNavigateAction({
+    type: "url",
+    url: "https://main.d1u1rwoxxrg4ul.amplifyapp.com/",
+  });
   return (
     <View
       width="1440px"
@@ -66,6 +85,9 @@ export default function NavBar(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Product features"
+        onClick={() => {
+          productfeaturesOnClick();
+        }}
         {...getOverrideProps(overrides, "Product features")}
       ></Text>
       <Text
@@ -90,6 +112,9 @@ export default function NavBar(props) {
         padding="0px 0px 0px 0px"
         whiteSpace="pre-wrap"
         children="Featured in"
+        onClick={() => {
+          featuredinOnClick();
+        }}
         {...getOverrideProps(overrides, "Featured in")}
       ></Text>
       <View
@@ -162,6 +187,9 @@ export default function NavBar(props) {
         left="8.33%"
         right="81.89%"
         padding="0px 0px 0px 0px"
+        onClick={() => {
+          carbiquelogoTwoOnClick();
+        }}
         {...getOverrideProps(overrides, "Carbique logo 2")}
       >
         <Icon
@@ -377,6 +405,9 @@ export default function NavBar(props) {
           bottom="25.44%"
           left="51.64%"
           right="41.83%"
+          onClick={() => {
+            vectorFiveEightFiveFiveEightOnClick();
+          }}
           {...getOverrideProps(overrides, "Vector58558")}
         ></Icon>
         <Icon
