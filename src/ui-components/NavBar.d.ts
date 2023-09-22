@@ -37,6 +37,9 @@ export declare type NavBarOverridesProps = {
     Vector58567?: PrimitiveOverrideProps<IconProps>;
 } & EscapeHatchProps;
 export declare type NavBarProps = React.PropsWithChildren<Partial<ViewProps> & {
+    class?: String;
+    label?: String;
+} & {
     overrides?: NavBarOverridesProps | undefined | null;
 }>;
 export default function NavBar(props: NavBarProps): React.ReactElement;

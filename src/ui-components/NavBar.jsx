@@ -12,10 +12,10 @@ import {
 } from "@aws-amplify/ui-react/internal";
 import { Icon, Text, View } from "@aws-amplify/ui-react";
 export default function NavBar(props) {
-  const { overrides, ...rest } = props;
+  const { class: classProp, label, overrides, ...rest } = props;
   const productfeaturesOnClick = useNavigateAction({
     type: "url",
-    url: "google.com",
+    url: "https://main.d1u1rwoxxrg4ul.amplifyapp.com/",
   });
   const featuredinOnClick = useNavigateAction({
     type: "url",

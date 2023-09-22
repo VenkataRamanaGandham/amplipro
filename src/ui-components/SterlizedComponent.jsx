@@ -56,7 +56,7 @@ export default function SterlizedComponent(props) {
         <View
           width="1440px"
           height="558.93px"
-          display="block"
+          display="none"
           gap="unset"
           alignItems="unset"
           justifyContent="unset"
@@ -92,7 +92,7 @@ export default function SterlizedComponent(props) {
       <View
         width="1440px"
         height="565.62px"
-        display="block"
+        display="none"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"

@@ -1,3 +1,8 @@
+type HomePageImages @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  HeroBannerImage: AWSURL
+}
+
 type SubscribeNow @model @auth(rules: [{allow: public}]) {
   id: ID!
   SubscriptionEmailId: String

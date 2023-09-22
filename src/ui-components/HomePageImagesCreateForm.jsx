@@ -8,10 +8,10 @@
 import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { ContactUsCreateForm } from "../models";
+import { HomePageImages } from "../models";
 import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
-export default function ContactUsCreateFormCreateForm(props) {
+export default function HomePageImagesCreateForm(props) {
   const {
     clearOnSuccess = true,
     onSuccess,
@@ -23,24 +23,18 @@ export default function ContactUsCreateFormCreateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    Name: "",
-    EmailId: "",
-    Message: "",
+    HeroBannerImage: "",
   };
-  const [Name, setName] = React.useState(initialValues.Name);
-  const [EmailId, setEmailId] = React.useState(initialValues.EmailId);
-  const [Message, setMessage] = React.useState(initialValues.Message);
+  const [HeroBannerImage, setHeroBannerImage] = React.useState(
+    initialValues.HeroBannerImage
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    setName(initialValues.Name);
-    setEmailId(initialValues.EmailId);
-    setMessage(initialValues.Message);
+    setHeroBannerImage(initialValues.HeroBannerImage);
     setErrors({});
   };
   const validations = {
-    Name: [],
-    EmailId: [],
-    Message: [],
+    HeroBannerImage: [{ type: "URL" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -68,9 +62,7 @@ export default function ContactUsCreateFormCreateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          Name,
-          EmailId,
-          Message,
+          HeroBannerImage,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -100,7 +92,7 @@ export default function ContactUsCreateFormCreateForm(props) {
               modelFields[key] = null;
             }
           });
-          await DataStore.save(new ContactUsCreateForm(modelFields));
+          await DataStore.save(new HomePageImages(modelFields));
           if (onSuccess) {
             onSuccess(modelFields);
           }
@@ -113,86 +105,32 @@ export default function ContactUsCreateFormCreateForm(props) {
           }
         }
       }}
-      {...getOverrideProps(overrides, "ContactUsCreateFormCreateForm")}
+      {...getOverrideProps(overrides, "HomePageImagesCreateForm")}
       {...rest}
     >
       <TextField
-        label="Name"
+        label="Hero banner image"
         isRequired={false}
         isReadOnly={false}
-        value={Name}
+        value={HeroBannerImage}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              Name: value,
-              EmailId,
-              Message,
+              HeroBannerImage: value,
             };
             const result = onChange(modelFields);
-            value = result?.Name ?? value;
+            value = result?.HeroBannerImage ?? value;
           }
-          if (errors.Name?.hasError) {
-            runValidationTasks("Name", value);
+          if (errors.HeroBannerImage?.hasError) {
+            runValidationTasks("HeroBannerImage", value);
           }
-          setName(value);
+          setHeroBannerImage(value);
         }}
-        onBlur={() => runValidationTasks("Name", Name)}
-        errorMessage={errors.Name?.errorMessage}
-        hasError={errors.Name?.hasError}
-        {...getOverrideProps(overrides, "Name")}
-      ></TextField>
-      <TextField
-        label="Email id"
-        isRequired={false}
-        isReadOnly={false}
-        value={EmailId}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              Name,
-              EmailId: value,
-              Message,
-            };
-            const result = onChange(modelFields);
-            value = result?.EmailId ?? value;
-          }
-          if (errors.EmailId?.hasError) {
-            runValidationTasks("EmailId", value);
-          }
-          setEmailId(value);
-        }}
-        onBlur={() => runValidationTasks("EmailId", EmailId)}
-        errorMessage={errors.EmailId?.errorMessage}
-        hasError={errors.EmailId?.hasError}
-        {...getOverrideProps(overrides, "EmailId")}
-      ></TextField>
-      <TextField
-        label="Message"
-        isRequired={false}
-        isReadOnly={false}
-        value={Message}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              Name,
-              EmailId,
-              Message: value,
-            };
-            const result = onChange(modelFields);
-            value = result?.Message ?? value;
-          }
-          if (errors.Message?.hasError) {
-            runValidationTasks("Message", value);
-          }
-          setMessage(value);
-        }}
-        onBlur={() => runValidationTasks("Message", Message)}
-        errorMessage={errors.Message?.errorMessage}
-        hasError={errors.Message?.hasError}
-        {...getOverrideProps(overrides, "Message")}
+        onBlur={() => runValidationTasks("HeroBannerImage", HeroBannerImage)}
+        errorMessage={errors.HeroBannerImage?.errorMessage}
+        hasError={errors.HeroBannerImage?.hasError}
+        {...getOverrideProps(overrides, "HeroBannerImage")}
       ></TextField>
       <Flex
         justifyContent="space-between"

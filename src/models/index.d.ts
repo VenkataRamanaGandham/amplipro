@@ -6,6 +6,34 @@ import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
+type EagerHomePageImages = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<HomePageImages, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly HeroBannerImage?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+type LazyHomePageImages = {
+  readonly [__modelMeta__]: {
+    identifier: ManagedIdentifier<HomePageImages, 'id'>;
+    readOnlyFields: 'createdAt' | 'updatedAt';
+  };
+  readonly id: string;
+  readonly HeroBannerImage?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+}
+
+export declare type HomePageImages = LazyLoading extends LazyLoadingDisabled ? EagerHomePageImages : LazyHomePageImages
+
+export declare const HomePageImages: (new (init: ModelInit<HomePageImages>) => HomePageImages) & {
+  copyOf(source: HomePageImages, mutator: (draft: MutableModel<HomePageImages>) => MutableModel<HomePageImages> | void): HomePageImages;
+}
+
 type EagerSubscribeNow = {
   readonly [__modelMeta__]: {
     identifier: ManagedIdentifier<SubscribeNow, 'id'>;

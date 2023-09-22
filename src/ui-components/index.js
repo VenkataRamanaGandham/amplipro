@@ -11,6 +11,8 @@ export { default as Desktoplight } from "./Desktoplight";
 export { default as FeaturedIn } from "./FeaturedIn";
 export { default as Footer } from "./Footer";
 export { default as HeroBanner } from "./HeroBanner";
+export { default as HomePageImagesCreateForm } from "./HomePageImagesCreateForm";
+export { default as HomePageImagesUpdateForm } from "./HomePageImagesUpdateForm";
 export { default as ListingBlock } from "./ListingBlock";
 export { default as NavBar } from "./NavBar";
 export { default as SignedUp } from "./SignedUp";

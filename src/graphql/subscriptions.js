@@ -1,6 +1,54 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const onCreateHomePageImages = /* GraphQL */ `
+  subscription OnCreateHomePageImages(
+    $filter: ModelSubscriptionHomePageImagesFilterInput
+  ) {
+    onCreateHomePageImages(filter: $filter) {
+      id
+      HeroBannerImage
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateHomePageImages = /* GraphQL */ `
+  subscription OnUpdateHomePageImages(
+    $filter: ModelSubscriptionHomePageImagesFilterInput
+  ) {
+    onUpdateHomePageImages(filter: $filter) {
+      id
+      HeroBannerImage
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteHomePageImages = /* GraphQL */ `
+  subscription OnDeleteHomePageImages(
+    $filter: ModelSubscriptionHomePageImagesFilterInput
+  ) {
+    onDeleteHomePageImages(filter: $filter) {
+      id
+      HeroBannerImage
+      createdAt
+      updatedAt
+      _version
+      _deleted
+      _lastChangedAt
+      __typename
+    }
+  }
+`;
 export const onCreateSubscribeNow = /* GraphQL */ `
   subscription OnCreateSubscribeNow(
     $filter: ModelSubscriptionSubscribeNowFilterInput
@@ -10,6 +58,9 @@ export const onCreateSubscribeNow = /* GraphQL */ `
       SubscriptionEmailId
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -23,6 +74,9 @@ export const onUpdateSubscribeNow = /* GraphQL */ `
       SubscriptionEmailId
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -36,6 +90,9 @@ export const onDeleteSubscribeNow = /* GraphQL */ `
       SubscriptionEmailId
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -51,6 +108,9 @@ export const onCreateContactUsCreateForm = /* GraphQL */ `
       Message
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -66,6 +126,9 @@ export const onUpdateContactUsCreateForm = /* GraphQL */ `
       Message
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }
@@ -81,6 +144,9 @@ export const onDeleteContactUsCreateForm = /* GraphQL */ `
       Message
       createdAt
       updatedAt
+      _version
+      _deleted
+      _lastChangedAt
       __typename
     }
   }

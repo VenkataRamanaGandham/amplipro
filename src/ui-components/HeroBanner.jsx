@@ -9,7 +9,7 @@ import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Image, Text, View } from "@aws-amplify/ui-react";
 export default function HeroBanner(props) {
-  const { overrides, ...rest } = props;
+  const { homePageImages, overrides, ...rest } = props;
   return (
     <View
       width="1441px"
@@ -24,21 +24,21 @@ export default function HeroBanner(props) {
       {...rest}
     >
       <Image
-        width="100%"
-        height="99.41%"
+        width="94.24%"
+        height="93.05%"
         display="block"
         gap="unset"
         alignItems="unset"
         justifyContent="unset"
         position="absolute"
-        top="0%"
-        bottom="0.59%"
-        left="0%"
-        right="0%"
+        top="2.54%"
+        bottom="4.41%"
+        left="1.67%"
+        right="4.09%"
         padding="0px 0px 0px 0px"
         objectFit="cover"
-        src=""
-        {...getOverrideProps(overrides, "Hero image Carbique 1")}
+        src={homePageImages?.HeroBannerImage}
+        {...getOverrideProps(overrides, "harsha-background 1")}
       ></Image>
       <View
         width="1371.48px"
@@ -49,7 +49,7 @@ export default function HeroBanner(props) {
         fontFamily="Playfair Display"
         fontSize="63.92522048950195px"
         fontWeight="700"
-        color="rgba(32,32,32,1)"
+        color="white"
         lineHeight="85.21231842041016px"
         textAlign="left"
         display="block"
@@ -73,7 +73,7 @@ export default function HeroBanner(props) {
         fontFamily="Roboto"
         fontSize="20.333446502685547px"
         fontWeight="400"
-        color="rgba(32,32,32,1)"
+        color="white"
         lineHeight="23.828258514404297px"
         textAlign="left"
         display="block"

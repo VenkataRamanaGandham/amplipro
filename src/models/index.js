@@ -4,9 +4,10 @@ import { schema } from './schema';
 
 
 
-const { SubscribeNow, ContactUsCreateForm } = initSchema(schema);
+const { HomePageImages, SubscribeNow, ContactUsCreateForm } = initSchema(schema);
 
 export {
+  HomePageImages,
   SubscribeNow,
   ContactUsCreateForm
 };

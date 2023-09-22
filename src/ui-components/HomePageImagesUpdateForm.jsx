@@ -8,13 +8,13 @@
 import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
-import { ContactUsCreateForm } from "../models";
+import { HomePageImages } from "../models";
 import { fetchByPath, validateField } from "./utils";
 import { DataStore } from "aws-amplify";
-export default function ContactUsCreateFormUpdateForm(props) {
+export default function HomePageImagesUpdateForm(props) {
   const {
     id: idProp,
-    contactUsCreateForm: contactUsCreateFormModelProp,
+    homePageImages: homePageImagesModelProp,
     onSuccess,
     onError,
     onSubmit,
@@ -24,39 +24,34 @@ export default function ContactUsCreateFormUpdateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    Name: "",
-    EmailId: "",
-    Message: "",
+    HeroBannerImage: "",
   };
-  const [Name, setName] = React.useState(initialValues.Name);
-  const [EmailId, setEmailId] = React.useState(initialValues.EmailId);
-  const [Message, setMessage] = React.useState(initialValues.Message);
+  const [HeroBannerImage, setHeroBannerImage] = React.useState(
+    initialValues.HeroBannerImage
+  );
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
-    const cleanValues = contactUsCreateFormRecord
-      ? { ...initialValues, ...contactUsCreateFormRecord }
+    const cleanValues = homePageImagesRecord
+      ? { ...initialValues, ...homePageImagesRecord }
       : initialValues;
-    setName(cleanValues.Name);
-    setEmailId(cleanValues.EmailId);
-    setMessage(cleanValues.Message);
+    setHeroBannerImage(cleanValues.HeroBannerImage);
     setErrors({});
   };
-  const [contactUsCreateFormRecord, setContactUsCreateFormRecord] =
-    React.useState(contactUsCreateFormModelProp);
+  const [homePageImagesRecord, setHomePageImagesRecord] = React.useState(
+    homePageImagesModelProp
+  );
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
-        ? await DataStore.query(ContactUsCreateForm, idProp)
-        : contactUsCreateFormModelProp;
-      setContactUsCreateFormRecord(record);
+        ? await DataStore.query(HomePageImages, idProp)
+        : homePageImagesModelProp;
+      setHomePageImagesRecord(record);
     };
     queryData();
-  }, [idProp, contactUsCreateFormModelProp]);
-  React.useEffect(resetStateValues, [contactUsCreateFormRecord]);
+  }, [idProp, homePageImagesModelProp]);
+  React.useEffect(resetStateValues, [homePageImagesRecord]);
   const validations = {
-    Name: [],
-    EmailId: [],
-    Message: [],
+    HeroBannerImage: [{ type: "URL" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -84,9 +79,7 @@ export default function ContactUsCreateFormUpdateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          Name,
-          EmailId,
-          Message,
+          HeroBannerImage,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -117,7 +110,7 @@ export default function ContactUsCreateFormUpdateForm(props) {
             }
           });
           await DataStore.save(
-            ContactUsCreateForm.copyOf(contactUsCreateFormRecord, (updated) => {
+            HomePageImages.copyOf(homePageImagesRecord, (updated) => {
               Object.assign(updated, modelFields);
             })
           );
@@ -130,86 +123,32 @@ export default function ContactUsCreateFormUpdateForm(props) {
           }
         }
       }}
-      {...getOverrideProps(overrides, "ContactUsCreateFormUpdateForm")}
+      {...getOverrideProps(overrides, "HomePageImagesUpdateForm")}
       {...rest}
     >
       <TextField
-        label="Name"
+        label="Hero banner image"
         isRequired={false}
         isReadOnly={false}
-        value={Name}
+        value={HeroBannerImage}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              Name: value,
-              EmailId,
-              Message,
+              HeroBannerImage: value,
             };
             const result = onChange(modelFields);
-            value = result?.Name ?? value;
+            value = result?.HeroBannerImage ?? value;
           }
-          if (errors.Name?.hasError) {
-            runValidationTasks("Name", value);
+          if (errors.HeroBannerImage?.hasError) {
+            runValidationTasks("HeroBannerImage", value);
           }
-          setName(value);
+          setHeroBannerImage(value);
         }}
-        onBlur={() => runValidationTasks("Name", Name)}
-        errorMessage={errors.Name?.errorMessage}
-        hasError={errors.Name?.hasError}
-        {...getOverrideProps(overrides, "Name")}
-      ></TextField>
-      <TextField
-        label="Email id"
-        isRequired={false}
-        isReadOnly={false}
-        value={EmailId}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              Name,
-              EmailId: value,
-              Message,
-            };
-            const result = onChange(modelFields);
-            value = result?.EmailId ?? value;
-          }
-          if (errors.EmailId?.hasError) {
-            runValidationTasks("EmailId", value);
-          }
-          setEmailId(value);
-        }}
-        onBlur={() => runValidationTasks("EmailId", EmailId)}
-        errorMessage={errors.EmailId?.errorMessage}
-        hasError={errors.EmailId?.hasError}
-        {...getOverrideProps(overrides, "EmailId")}
-      ></TextField>
-      <TextField
-        label="Message"
-        isRequired={false}
-        isReadOnly={false}
-        value={Message}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              Name,
-              EmailId,
-              Message: value,
-            };
-            const result = onChange(modelFields);
-            value = result?.Message ?? value;
-          }
-          if (errors.Message?.hasError) {
-            runValidationTasks("Message", value);
-          }
-          setMessage(value);
-        }}
-        onBlur={() => runValidationTasks("Message", Message)}
-        errorMessage={errors.Message?.errorMessage}
-        hasError={errors.Message?.hasError}
-        {...getOverrideProps(overrides, "Message")}
+        onBlur={() => runValidationTasks("HeroBannerImage", HeroBannerImage)}
+        errorMessage={errors.HeroBannerImage?.errorMessage}
+        hasError={errors.HeroBannerImage?.hasError}
+        {...getOverrideProps(overrides, "HeroBannerImage")}
       ></TextField>
       <Flex
         justifyContent="space-between"
@@ -222,7 +161,7 @@ export default function ContactUsCreateFormUpdateForm(props) {
             event.preventDefault();
             resetStateValues();
           }}
-          isDisabled={!(idProp || contactUsCreateFormModelProp)}
+          isDisabled={!(idProp || homePageImagesModelProp)}
           {...getOverrideProps(overrides, "ResetButton")}
         ></Button>
         <Flex
@@ -234,7 +173,7 @@ export default function ContactUsCreateFormUpdateForm(props) {
             type="submit"
             variation="primary"
             isDisabled={
-              !(idProp || contactUsCreateFormModelProp) ||
+              !(idProp || homePageImagesModelProp) ||
               Object.values(errors).some((e) => e?.hasError)
             }
             {...getOverrideProps(overrides, "SubmitButton")}

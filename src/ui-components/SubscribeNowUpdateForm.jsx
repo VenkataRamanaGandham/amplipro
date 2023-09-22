@@ -8,10 +8,9 @@
 import * as React from "react";
 import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import { SubscribeNow } from "../models";
 import { fetchByPath, validateField } from "./utils";
-import { API } from "aws-amplify";
-import { getSubscribeNow } from "../graphql/queries";
-import { updateSubscribeNow } from "../graphql/mutations";
+import { DataStore } from "aws-amplify";
 export default function SubscribeNowUpdateForm(props) {
   const {
     id: idProp,
@@ -44,12 +43,7 @@ export default function SubscribeNowUpdateForm(props) {
   React.useEffect(() => {
     const queryData = async () => {
       const record = idProp
-        ? (
-            await API.graphql({
-              query: getSubscribeNow,
-              variables: { id: idProp },
-            })
-          )?.data?.getSubscribeNow
+        ? await DataStore.query(SubscribeNow, idProp)
         : subscribeNowModelProp;
       setSubscribeNowRecord(record);
     };
@@ -85,7 +79,7 @@ export default function SubscribeNowUpdateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          SubscriptionEmailId: SubscriptionEmailId ?? null,
+          SubscriptionEmailId,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -115,22 +109,17 @@ export default function SubscribeNowUpdateForm(props) {
               modelFields[key] = null;
             }
           });
-          await API.graphql({
-            query: updateSubscribeNow,
-            variables: {
-              input: {
-                id: subscribeNowRecord.id,
-                ...modelFields,
-              },
-            },
-          });
+          await DataStore.save(
+            SubscribeNow.copyOf(subscribeNowRecord, (updated) => {
+              Object.assign(updated, modelFields);
+            })
+          );
           if (onSuccess) {
             onSuccess(modelFields);
           }
         } catch (err) {
           if (onError) {
-            const messages = err.errors.map((e) => e.message).join("\n");
-            onError(modelFields, messages);
+            onError(modelFields, err.message);
           }
         }
       }}

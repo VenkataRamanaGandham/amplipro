@@ -7,6 +7,7 @@
 import * as React from "react";
 import { GridProps, TextFieldProps } from "@aws-amplify/ui-react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { SubscribeNow } from "../models";
 export declare type ValidationResponse = {
     hasError: boolean;
     errorMessage?: string;
@@ -27,7 +28,7 @@ export declare type SubscribeNowUpdateFormProps = React.PropsWithChildren<{
     overrides?: SubscribeNowUpdateFormOverridesProps | undefined | null;
 } & {
     id?: string;
-    subscribeNow?: any;
+    subscribeNow?: SubscribeNow;
     onSubmit?: (fields: SubscribeNowUpdateFormInputValues) => SubscribeNowUpdateFormInputValues;
     onSuccess?: (fields: SubscribeNowUpdateFormInputValues) => void;
     onError?: (fields: SubscribeNowUpdateFormInputValues, errorMessage: string) => void;

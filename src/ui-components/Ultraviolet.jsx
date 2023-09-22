@@ -56,7 +56,7 @@ export default function Ultraviolet(props) {
         <View
           width="1440px"
           height="558.93px"
-          display="block"
+          display="none"
           gap="unset"
           alignItems="unset"
           justifyContent="unset"
