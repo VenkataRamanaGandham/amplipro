@@ -2,7 +2,7 @@ export const schema = {
     "models": {
         "HomePageImages": {
             "name": "HomePageImages",
-            "fields": {
+            "fields": { 
                 "id": {
                     "name": "id",
                     "isArray": false,
@@ -13,7 +13,7 @@ export const schema = {
                 "HeroBannerImage": {
                     "name": "HeroBannerImage",
                     "isArray": false,
-                    "type": "AWSURL",
+                    "type": "String",
                     "isRequired": false,
                     "attributes": []
                 },

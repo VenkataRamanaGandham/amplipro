@@ -1,6 +1,6 @@
 type HomePageImages @model @auth(rules: [{allow: public}]) {
   id: ID!
-  HeroBannerImage: AWSURL
+  HeroBannerImage: String
 }
 
 type SubscribeNow @model @auth(rules: [{allow: public}]) {
@@ -13,4 +13,5 @@ type ContactUsCreateForm @model @auth(rules: [{allow: public}]) {
   Name: String
   EmailId: String
   Message: String
-} 
+}
+ 

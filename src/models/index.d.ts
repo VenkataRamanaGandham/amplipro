@@ -1,6 +1,6 @@
 import { ModelInit, MutableModel, __modelMeta__, ManagedIdentifier } from "@aws-amplify/datastore";
 // @ts-ignore
-//import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
+import { LazyLoading, LazyLoadingDisabled } from "@aws-amplify/datastore";
 
 
 
@@ -28,7 +28,7 @@ type LazyHomePageImages = {
   readonly updatedAt?: string | null;
 }
 
-// export declare type HomePageImages = LazyLoading extends LazyLoadingDisabled ? EagerHomePageImages : LazyHomePageImages
+export declare type HomePageImages = LazyLoading extends LazyLoadingDisabled ? EagerHomePageImages : LazyHomePageImages
 
 export declare const HomePageImages: (new (init: ModelInit<HomePageImages>) => HomePageImages) & {
   copyOf(source: HomePageImages, mutator: (draft: MutableModel<HomePageImages>) => MutableModel<HomePageImages> | void): HomePageImages;
@@ -56,7 +56,7 @@ type LazySubscribeNow = {
   readonly updatedAt?: string | null;
 }
 
-//export declare type SubscribeNow = LazyLoading extends LazyLoadingDisabled ? EagerSubscribeNow : LazySubscribeNow
+export declare type SubscribeNow = LazyLoading extends LazyLoadingDisabled ? EagerSubscribeNow : LazySubscribeNow
 
 export declare const SubscribeNow: (new (init: ModelInit<SubscribeNow>) => SubscribeNow) & {
   copyOf(source: SubscribeNow, mutator: (draft: MutableModel<SubscribeNow>) => MutableModel<SubscribeNow> | void): SubscribeNow;
@@ -88,7 +88,7 @@ type LazyContactUsCreateForm = {
   readonly updatedAt?: string | null;
 }
 
-//export declare type ContactUsCreateForm = LazyLoading extends LazyLoadingDisabled ? EagerContactUsCreateForm : LazyContactUsCreateForm
+export declare type ContactUsCreateForm = LazyLoading extends LazyLoadingDisabled ? EagerContactUsCreateForm : LazyContactUsCreateForm
 
 export declare const ContactUsCreateForm: (new (init: ModelInit<ContactUsCreateForm>) => ContactUsCreateForm) & {
   copyOf(source: ContactUsCreateForm, mutator: (draft: MutableModel<ContactUsCreateForm>) => MutableModel<ContactUsCreateForm> | void): ContactUsCreateForm;

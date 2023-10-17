@@ -8,9 +8,8 @@
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Image, Text, View } from "@aws-amplify/ui-react";
-export default function HeroBanner(props) { 
+export default function HeroBanner(props) {
   const { homePageImages, overrides, ...rest } = props;
-  console.log(homePageImages);
   return (
     <View
       width="1441px"
@@ -39,7 +38,7 @@ export default function HeroBanner(props) {
         right="1.73%"
         padding="0px 0px 0px 0px"
         objectFit="cover"
-        src={homePageImages?.HeroBannerImage}
+        src={"https://www.pennywisesolutions.com/sites/default/files/homepage-des-banners/banner-img1.jpg"}
         {...getOverrideProps(overrides, "harsha-background 1")}
       ></Image>
       <View

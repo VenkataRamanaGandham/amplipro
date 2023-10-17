@@ -12,7 +12,7 @@ export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes
 export declare type HeroBannerOverridesProps = {
     HeroBanner?: PrimitiveOverrideProps<ViewProps>;
     "harsha-background 1"?: PrimitiveOverrideProps<ImageProps>;
-    "Rectangle 2"?: PrimitiveOverrideProps<ViewProps>;
+    "Rectangle 3"?: PrimitiveOverrideProps<ViewProps>;
     "Introducing Carbique"?: PrimitiveOverrideProps<TextProps>;
     "Carbique is bold. Carbique is beautiful. And unlike other products which contribute negatively to the environment, you only need one of these. In each color."?: PrimitiveOverrideProps<TextProps>;
     "It\u2019s seltzer. From the future."?: PrimitiveOverrideProps<TextProps>;

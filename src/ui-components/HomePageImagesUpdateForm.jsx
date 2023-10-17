@@ -51,7 +51,7 @@ export default function HomePageImagesUpdateForm(props) {
   }, [idProp, homePageImagesModelProp]);
   React.useEffect(resetStateValues, [homePageImagesRecord]);
   const validations = {
-    HeroBannerImage: [{ type: "URL" }],
+    HeroBannerImage: [],
   };
   const runValidationTasks = async (
     fieldName,

@@ -34,7 +34,7 @@ export default function HomePageImagesCreateForm(props) {
     setErrors({});
   };
   const validations = {
-    HeroBannerImage: [{ type: "URL" }],
+    HeroBannerImage: [],
   };
   const runValidationTasks = async (
     fieldName,
