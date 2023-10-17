@@ -8,8 +8,9 @@
 import * as React from "react";
 import { getOverrideProps } from "@aws-amplify/ui-react/internal";
 import { Image, Text, View } from "@aws-amplify/ui-react";
-export default function HeroBanner(props) {
+export default function HeroBanner(props) { 
   const { homePageImages, overrides, ...rest } = props;
+  console.log(homePageImages);
   return (
     <View
       width="1441px"
@@ -19,12 +20,13 @@ export default function HeroBanner(props) {
       alignItems="unset"
       justifyContent="unset"
       position="relative"
+      boxShadow="0px 4px 4px rgba(0, 0, 0, 0.25)"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "HeroBanner")}
       {...rest}
     >
       <Image
-        width="94.24%"
+        width="97.5%"
         height="93.05%"
         display="block"
         gap="unset"
@@ -33,23 +35,34 @@ export default function HeroBanner(props) {
         position="absolute"
         top="2.54%"
         bottom="4.41%"
-        left="1.67%"
-        right="4.09%"
+        left="0.76%"
+        right="1.73%"
         padding="0px 0px 0px 0px"
         objectFit="cover"
         src={homePageImages?.HeroBannerImage}
         {...getOverrideProps(overrides, "harsha-background 1")}
       ></Image>
       <View
-        width="1371.48px"
-        height="562.02px"
-        {...getOverrideProps(overrides, "Rectangle 2")}
+        width="1396.48px"
+        height="579.02px"
+        display="block"
+        gap="unset"
+        alignItems="unset"
+        justifyContent="unset"
+        position="absolute"
+        top="1.69%"
+        bottom="0.17%"
+        left="0%"
+        right="3.09%"
+        padding="0px 0px 0px 0px"
+        backgroundImage="linear-gradient(67deg, rgba(250,253,255,1), rgba(250,253,255,0))"
+        {...getOverrideProps(overrides, "Rectangle 3")}
       ></View>
       <Text
         fontFamily="Playfair Display"
         fontSize="63.92522048950195px"
         fontWeight="700"
-        color="white"
+        color="rgba(32,32,32,1)"
         lineHeight="85.21231842041016px"
         textAlign="left"
         display="block"
@@ -73,7 +86,7 @@ export default function HeroBanner(props) {
         fontFamily="Roboto"
         fontSize="20.333446502685547px"
         fontWeight="400"
-        color="white"
+        color="rgba(32,32,32,1)"
         lineHeight="23.828258514404297px"
         textAlign="left"
         display="block"

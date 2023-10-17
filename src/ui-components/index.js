@@ -8,6 +8,7 @@ export { default as ContactUsCreateForm } from "./ContactUsCreateForm";
 export { default as ContactUsCreateFormCreateForm } from "./ContactUsCreateFormCreateForm";
 export { default as ContactUsCreateFormUpdateForm } from "./ContactUsCreateFormUpdateForm";
 export { default as Desktoplight } from "./Desktoplight";
+export { default as DesktoplightDefault } from "./DesktoplightDefault";
 export { default as FeaturedIn } from "./FeaturedIn";
 export { default as Footer } from "./Footer";
 export { default as HeroBanner } from "./HeroBanner";
